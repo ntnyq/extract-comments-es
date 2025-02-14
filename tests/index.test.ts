@@ -1,5 +1,11 @@
 import { expect, it } from 'vitest'
-import { extractComments } from '../src'
+import {
+  extractAllComments,
+  extractComments,
+  extractHashbangComments,
+  extractMultiLineComments,
+  extractSingleLineComments,
+} from '../src'
 import FIXTURE_APP from './fixtures/app.js?raw'
 
 it('extractComments', () => {
@@ -129,5 +135,133 @@ it('extractComments', () => {
         },
       ],
     }
+  `)
+})
+
+it('extractAllComments', () => {
+  expect(extractAllComments(FIXTURE_APP)).toMatchInlineSnapshot(`
+    [
+      {
+        "type": "HashbangComment",
+        "value": "#!/usr/bin/env node",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Create an instance of App with \`options\`.
+     *
+     * @param {Object} options
+     * @api public
+     */",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Set \`key\` on cache with the given \`value\`
+     *
+     * @param {String} \`key\`
+     * @param {any} \`value\`
+     * @api public
+     */",
+      },
+      {
+        "type": "SingleLineComment",
+        "value": "// this is a line comment",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Get \`key\` from cache.
+     *
+     * @param {String} \`key\`
+     * @api public
+     */",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Delete \`key\` from cache
+     *
+     * @param {String} \`key\`
+     * @param {any} value
+     * @api public
+     */",
+      },
+    ]
+  `)
+})
+
+it('extractHashbangComments', () => {
+  expect(extractHashbangComments(FIXTURE_APP)).toMatchInlineSnapshot(`
+    [
+      {
+        "type": "HashbangComment",
+        "value": "#!/usr/bin/env node",
+      },
+    ]
+  `)
+})
+
+it('extractSingleLineComments', () => {
+  expect(extractSingleLineComments(FIXTURE_APP)).toMatchInlineSnapshot(`
+    [
+      {
+        "type": "SingleLineComment",
+        "value": "// this is a line comment",
+      },
+    ]
+  `)
+})
+
+it('extractMultiLineComments', () => {
+  expect(extractMultiLineComments(FIXTURE_APP)).toMatchInlineSnapshot(`
+    [
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Create an instance of App with \`options\`.
+     *
+     * @param {Object} options
+     * @api public
+     */",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Set \`key\` on cache with the given \`value\`
+     *
+     * @param {String} \`key\`
+     * @param {any} \`value\`
+     * @api public
+     */",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Get \`key\` from cache.
+     *
+     * @param {String} \`key\`
+     * @api public
+     */",
+      },
+      {
+        "closed": true,
+        "type": "MultiLineComment",
+        "value": "/**
+     * Delete \`key\` from cache
+     *
+     * @param {String} \`key\`
+     * @param {any} value
+     * @api public
+     */",
+      },
+    ]
   `)
 })
