@@ -2,6 +2,7 @@ import { extractComments } from './core'
 
 /**
  * Shortcut to extract all single-line comments
+ *
  * @param code - input code
  * @returns all single-line comments
  */
@@ -13,6 +14,7 @@ export function extractSingleLineComments(code: string) {
 
 /**
  * Shortcut to extract all multi-line comments
+ *
  * @param code - input code
  * @returns all multi-line comments
  */
@@ -24,6 +26,7 @@ export function extractMultiLineComments(code: string) {
 
 /**
  * Shortcut to extract all hashbang comments
+ *
  * @param code - input code
  * @returns all hashbang comments
  */
@@ -37,6 +40,7 @@ export function extractHashbangComments(code: string) {
 
 /**
  * Shortcut to extract all comments
+ *
  * @param code - input code
  * @returns all comments
  */
