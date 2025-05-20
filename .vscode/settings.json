@@ -25,9 +25,12 @@
     "bumpp",
     "changelogithub",
     "codecov",
+    "esbuild",
     "lcov",
     "lydell",
     "pnpm",
+    "tsdown",
+    "unrs",
     "vite",
     "vitepress",
     "vitest"
