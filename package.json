@@ -2,7 +2,7 @@
   "name": "extract-comments-es",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.15.0",
   "description": "Extract comments from JS, JSX via js-tokens",
   "keywords": [
     "extract-comments-es",
@@ -43,9 +43,8 @@
     "lint": "eslint",
     "prepare": "husky",
     "prepublishOnly": "pnpm run build",
-    "release": "run-s release:check release:version release:publish",
+    "release": "run-s release:check release:version",
     "release:check": "run-s lint typecheck test",
-    "release:publish": "pnpm publish",
     "release:version": "bumpp",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
@@ -54,17 +53,17 @@
     "js-tokens": "^9.0.1"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^5.0.0",
+    "@ntnyq/eslint-config": "^5.4.1",
     "@ntnyq/prettier-config": "^3.0.1",
-    "@types/node": "^24.0.8",
-    "bumpp": "^10.2.0",
-    "eslint": "^9.30.0",
+    "@types/node": "^24.3.0",
+    "bumpp": "^10.2.3",
+    "eslint": "^9.33.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
-    "tsdown": "^0.12.9",
-    "typescript": "^5.8.3",
+    "tsdown": "^0.14.1",
+    "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
   "nano-staged": {

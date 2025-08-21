@@ -5,5 +5,4 @@ export default defineConfig({
   dts: true,
   entry: ['src/index.ts'],
   shims: true,
-  target: ['es2022', 'node18'],
 })
