@@ -2,7 +2,7 @@
   "name": "extract-comments-es",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@10.26.2",
   "description": "Extract comments from JS, JSX via js-tokens",
   "keywords": [
     "extract-comments-es",
@@ -61,7 +61,7 @@
     "nano-staged": "^0.9.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.7.4",
-    "tsdown": "^0.18.2",
+    "tsdown": "^0.18.3",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16"
   },
