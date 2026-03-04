@@ -32,9 +32,9 @@ export function extractMultiLineComments(code: string) {
  */
 export function extractHashbangComments(code: string) {
   return extractComments(code, {
-    singleLine: false,
-    multiLine: false,
     hashbang: true,
+    multiLine: false,
+    singleLine: false,
   }).hashbangComments
 }
 

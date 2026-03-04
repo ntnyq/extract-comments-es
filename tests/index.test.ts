@@ -19,9 +19,9 @@ it('extractComments', () => {
   expect(result.hashbangComments.length).toMatchInlineSnapshot(`1`)
 
   expect(
-    result.singleLineComments.length
-      + result.multiLineComments.length
-      + result.hashbangComments.length,
+    result.singleLineComments.length +
+      result.multiLineComments.length +
+      result.hashbangComments.length,
   ).toBe(result.comments.length)
 
   expect(result).toMatchInlineSnapshot(`

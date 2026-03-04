@@ -49,8 +49,8 @@ export function extractComments(
 
   return {
     comments,
-    singleLineComments,
-    multiLineComments,
     hashbangComments,
+    multiLineComments,
+    singleLineComments,
   }
 }

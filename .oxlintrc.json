@@ -1,0 +1,80 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "import",
+    "jsdoc",
+    "node",
+    "promise",
+    "oxc",
+    "typescript",
+    "unicorn"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "restriction": "warn"
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/tests/fixtures/**"
+  ],
+  "rules": {
+    "capitalized-comments": "off",
+    "sort-imports": "off",
+    "import/group-exports": "off",
+    "import/no-named-export": "off",
+    "import/prefer-default-export": "off",
+    "import/no-relative-parent-imports": "off",
+    "jsdoc/require-returns-type": "off",
+    "jsdoc/require-param-type": "off",
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off",
+    "id-length": [
+      "warn",
+      { "min": 2, "exceptions": ["i", "j", "k", "_", "T"] }
+    ],
+    "max-statements": ["warn", 20],
+    "func-style": ["warn", "declaration", { "allowArrowFunctions": true }]
+  },
+  "overrides": [
+    {
+      "files": ["*.config.{mjs,ts}"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        // to extend existing modules, import/export must not appear in declaration files at top level
+        "import/unambiguous": "off",
+        // we need `export {}` to convert a file to a module
+        "unicorn/require-module-specifiers": "off"
+      }
+    },
+    {
+      "files": ["*.{spec,test}.{js,ts,tsx}", "*.{spec,test}-d.{ts,tsx}"],
+      "plugins": ["vitest"],
+      "rules": {
+        "id-length": "off",
+        "max-classes-per-file": "off",
+        "max-lines-per-function": "off",
+        "max-lines": "off",
+        "max-statements": "off",
+        "no-empty-function": "off",
+        "no-undefined": "off",
+        "import/no-nodejs-modules": "off",
+        "typescript/ban-ts-comment": "off",
+        "typescript/no-non-null-assertion": "off",
+        "typescript/prefer-ts-expect-error": "off",
+        "typescript/require-array-sort-compare": "off",
+        "vitest/no-importing-vitest-globals": "off"
+      }
+    }
+  ]
+}

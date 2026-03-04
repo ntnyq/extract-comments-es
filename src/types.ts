@@ -1,22 +1,16 @@
 import type { JSXToken, Token } from 'js-tokens'
 
-type BaseComment<T extends JSXToken['type'] | Token['type']> = {
+interface BaseComment<T extends JSXToken['type'] | Token['type']> {
   type: T
   value: string
 }
 
-/**
- * @pg
- */
 export type HashbangComment = BaseComment<'HashbangComment'>
 export type MultiLineComment = BaseComment<'MultiLineComment'> & {
   closed: boolean
 }
 export type SingleLineComment = BaseComment<'SingleLineComment'>
 
-/**
- * @pg
- */
 export type ExtractComment =
   | HashbangComment
   | MultiLineComment
