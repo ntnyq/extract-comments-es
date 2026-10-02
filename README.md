@@ -118,9 +118,7 @@ export type MultiLineComment = BaseComment<'MultiLineComment'> & {
 export type SingleLineComment = BaseComment<'SingleLineComment'>
 
 export type ExtractComment =
-  | HashbangComment
-  | MultiLineComment
-  | SingleLineComment
+  HashbangComment | MultiLineComment | SingleLineComment
 
 export interface ExtractResult {
   comments: ExtractComment[]
