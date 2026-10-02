@@ -5,5 +5,7 @@ allowBuilds:
   esbuild: true
 
 minimumReleaseAge: 0
+
 ignoreWorkspaceRootCheck: true
-packageManagerStrict: false
+
+pmOnFail: warn
