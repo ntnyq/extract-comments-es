@@ -18,11 +18,7 @@
     "style": "warn",
     "restriction": "warn",
   },
-  "ignorePatterns": [
-    "**/dist/**",
-    "**/node_modules/**",
-    "**/tests/fixtures/**",
-  ],
+  "ignorePatterns": ["**/dist/**", "**/node_modules/**", "**/fixtures/**"],
   "rules": {
     "capitalized-comments": "off",
     "sort-imports": "off",
@@ -40,6 +36,7 @@
     ],
     "max-statements": ["warn", 20],
     "func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
+    "one-var": ["error", "never"],
   },
   "overrides": [
     {

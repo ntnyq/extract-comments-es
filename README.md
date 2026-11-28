@@ -41,6 +41,16 @@ const result = extractComments(code)
 console.log(result.comments)
 ```
 
+Pass `jsx: true` to extract comments from JSX.
+
+```ts
+const jsxCode = '<div>// shown {/* note */}</div>'
+const { comments } = extractComments(jsxCode, { jsx: true })
+
+console.log(comments)
+// [{ type: 'MultiLineComment', value: '/* note */', closed: true }]
+```
+
 ## API
 
 ### extractComments
@@ -118,7 +128,9 @@ export type MultiLineComment = BaseComment<'MultiLineComment'> & {
 export type SingleLineComment = BaseComment<'SingleLineComment'>
 
 export type ExtractComment =
-  HashbangComment | MultiLineComment | SingleLineComment
+  | HashbangComment
+  | MultiLineComment
+  | SingleLineComment
 
 export interface ExtractResult {
   comments: ExtractComment[]

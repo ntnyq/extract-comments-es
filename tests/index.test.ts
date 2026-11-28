@@ -138,6 +138,15 @@ it('extractComments', () => {
   `)
 })
 
+it('extractComments ignores comment markers in JSX text', () => {
+  const code = '<div>// shown {/* note */}</div>'
+  const { comments } = extractComments(code, { jsx: true })
+
+  expect(comments).toStrictEqual([
+    { closed: true, type: 'MultiLineComment', value: '/* note */' },
+  ])
+})
+
 it('extractAllComments', () => {
   expect(extractAllComments(FIXTURE_APP)).toMatchInlineSnapshot(`
     [

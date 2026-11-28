@@ -18,7 +18,10 @@
     "name": "ntnyq",
     "email": "ntnyq13@gmail.com"
   },
-  "repository": "ntnyq/extract-comments-es",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntnyq/extract-comments-es.git"
+  },
   "files": [
     "dist"
   ],
@@ -48,26 +51,25 @@
     "release:check": "run-s format:check lint typecheck test",
     "release:version": "bumpp",
     "test": "vitest",
-    "typecheck": "tsgo --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "js-tokens": "^10.0.0"
+    "js-tokens": "^10.0.2"
   },
   "devDependencies": {
-    "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "bumpp": "^12.3.0",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
-    "npm-run-all2": "^9.0.3",
-    "oxfmt": "^0.71.0",
-    "oxlint": "^1.86.0",
-    "tsdown": "^0.23.0",
-    "typescript": "^7.0.2",
-    "vitest": "^5.0.3"
+    "npm-run-all2": "^9.1.0",
+    "oxfmt": "^0.80.0",
+    "oxlint": "^1.95.0",
+    "tsdown": "^0.23.7",
+    "typescript": "^7.1.0-beta",
+    "vitest": "^5.1.2"
   },
   "nano-staged": {
     "*.{js,ts,mjs,tsx}": "oxlint --fix",
     "*": "oxfmt --no-error-on-unmatched-pattern"
   },
-  "packageManager": "pnpm@12.9.1"
+  "packageManager": "pnpm@12.23.0"
 }
